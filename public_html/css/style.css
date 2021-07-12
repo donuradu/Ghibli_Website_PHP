@@ -1,0 +1,1193 @@
+/* ==================================================
+    Default Theme
+    -------------------------------------------------
+    Fonts: Raleway (headings) & Open Sans (paragraphs)
+    -------------------------------------------------
+    Colors:
+        Ghibli blue background: rgb(105, 196, 243)
+        Grey:               #212226
+        White Smoke:        #F4F4F4
+        White:              #FFF
+        Black:              #000
+===================================================*/
+
+/* ==================================================
+                    Generic HTML and Body
+===================================================*/
+
+html,
+body {
+  /* Make home section full screen */
+  height: 100%;
+}
+
+body {
+  /* The generic color for all the elements inside the body tag */
+  color: #212226;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+  /* sans-serif is used in case the browser can't find our first choice */
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  /* How thick the text is */
+  line-height: 24px;
+}
+
+/* Most of our background in here will be white, so we'll set it as the default color */
+section {
+  background: #fff;
+  overflow: hidden;
+  /* Specifies what happens if some content overflows an element box */
+}
+
+/* ==================================================
+                    Preloader
+===================================================*/
+
+#preloader {
+  background-color: #fff;
+  /* This is one of the best CSS ways to cover the whole page */
+  position: fixed;
+  /* Stays in the same place, even if the page is scrolled */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  /* Specifies the stack order of an element */
+  /* An element with a greater stack order is always in front of an element with a lower stack order */
+  /*We want our preloader div to stay in front of the page before the webpage loads, therefore we are using z-index with a greater value. */
+
+  /* Will stay on top of all ements on this page */
+  z-index: 9999;
+}
+
+/* Objective: Display the preloading animation */
+/* We will be using an animated image  */
+/* You can find other loading animations at "loading.io" */
+#status {
+  /*  ".." is to go one step back */
+  background-image: url(../img/preloader/preloader.gif);
+  background-repeat: no-repeat;
+  width: 70px;
+  height: 70px;
+
+  /* Position to the middle of the webpage */
+  position: absolute;
+  /* Can be positioned anywhere we want inside it's parent element */
+  left: 50%;
+  /* Move 50% from the left */
+  top: 50%;
+
+  /* It's not perfectly centered, we have to move it left and up by 35 pixels, which is derived from our width and height values divided by 2. */
+
+  /* CSS Negative margins */
+  margin-top: -35px;
+  margin-left: -35px;
+}
+
+/* ==================================================
+                    Home
+===================================================*/
+
+#home {
+  /* Makes sure that the home section will cover the entire browser window */
+  background: none;
+  height: 100%;
+}
+
+/* Makes the video full screen */
+#home-bg-video {
+  position: fixed;
+  /* Will move the video 50% to the left from its current position (for the second one) */
+  /* Will move 50% to the top (for the first one) */
+  top: 50%;
+  left: 50%;
+
+  /* Originally it was "transform: translateX(-50%) translateY(-50%);" 
+    "Auto-prefix-selection" with -webkit, 
+    will guarantee that the transform property will work on all webkit based browsers */
+
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+
+  /* Stretch the video out to fullscreen */
+  min-width: 100%;
+  min-height: 100%;
+
+  /* To make sure that the aspect ratio is maintained always */
+  width: auto;
+  height: auto;
+
+  /*To make sure that this video element is underneath everything */
+  z-index: -1;
+
+  /*Set a background image as fallback for browsers that can't play the video */
+  background: url("../video/Ghibli.jpg") no-repeat;
+
+  /* Cover the whole background */
+  background-size: cover;
+}
+
+#home-overlay {
+  background-color: rgba(0, 00, 0, 0.65);
+  /* Make sure that the overlay covers the whole pg */
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* Will make sure that the overlay will be undearneath everything */
+}
+
+/* vertically centered */
+#home-content {
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+
+#home-content-inner {
+  display: table-cell;
+  /* table cell, for the table from "home-content" from above*/
+  vertical-align: middle;
+  /* allign to the middle */
+}
+
+/* Apply CSS to all h1 elements within the "home-heading" div */
+#home-heading h1 {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin: 0;
+  display: inline-block;
+}
+
+#home-heading-1 {
+  font-size: 40px;
+}
+
+#heading-to {
+  text-transform: lowercase;
+}
+
+/* Target the words "Studio Ghibli" */
+#home-text-ghibli {
+  color: rgb(105, 196, 243);
+  font-weight: 400;
+}
+
+/* ==================================================
+                    Buttons
+===================================================*/
+.btn-general {
+  font-family: "Raleway", sans-serif;
+  border-radius: 28px;
+  /* Will create a more round shape */
+  font-size: 13px;
+  text-transform: uppercase;
+  /* Top and Bottom = 0. Left and Right = 6px. */
+  margin: 0 6px;
+  padding: 12px 46px 12px 46px;
+  /* Will create internal spacing */
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  /* Will cover all the transitions. Each transition lasting 0.5s. */
+  /* Also used "Auto-Prefix-Selection" on "transition: all 0.5s;" to make sure it works on all webkit based browsers */
+}
+
+.btn-home {
+  color: #fff;
+  /* 1px border, that's solid with a white color. */
+  border: 1px solid #fff;
+}
+
+/* when you hover over the button, it turns yellow, with a 0.5 second transition in between */
+/* "focus" selector to select the element that has focus. */
+.btn-home:hover,
+.btn-home:focus {
+  color: #fff;
+  background-color: rgb(105, 196, 243);
+  border: 1px solid rgb(105, 196, 243);
+}
+
+.btn-yellow {
+  color: #fff;
+  border: 1px solid rgb(105, 196, 243);
+  background-color: rgb(105, 196, 243);
+}
+
+.btn-yellow:hover,
+.btn-yellow:focus {
+  color: #fff;
+  background-color: #212226;
+  border: 1px solid #212226;
+}
+
+/* For white buttons */
+.btn-white {
+  color: #212226;
+  border: 1px solid #fff;
+  background-color: #fff;
+}
+
+.btn-white:hover,
+.btn-white:focus {
+  color: #fff;
+  background-color: #212226;
+  border: 1px solid #212226;
+}
+
+/* ==================================================
+                    Down Arrow
+===================================================*/
+
+#down-arrow {
+  position: absolute;
+  /* Will be positioned relative to our home section */
+  left: 50%;
+  bottom: 20px;
+  color: #fff;
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  /* Make it centered in its box */
+  margin-left: -16px;
+  /* Divide 32 by 2; */
+  z-index: 1;
+  /* Will be on top of the video element */
+}
+
+#down-arrow:hover,
+#down-arrow:focus {
+  color: rgb(105, 196, 243);
+}
+
+/* ==================================================
+                    Content Boxes
+===================================================*/
+.content-box-lg {
+  padding: 120px 0;
+}
+
+.content-box-md {
+  padding: 100px 0px;
+}
+
+/* ==================================================
+                Vertical/Horizontal Headings
+===================================================*/
+.vertical-heading h5 {
+  color: rgb(105, 196, 243);
+  font-size: 27px;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  /* To increase/decrease space between words */
+  word-spacing: 9px;
+  /* Will take only as much space as the text, without any extra */
+  display: inline-block;
+  /* Make it vertical */
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  position: relative;
+  /* Relative to its normal position */
+  top: 60px;
+  left: -53px;
+  margin: -28px;
+}
+
+.vertical-heading h2 {
+  /* Create some space from its left side */
+  margin: 0 0 0 35px;
+}
+
+/* Common CSS rules in one place */
+.horizontal-heading h2,
+.vertical-heading h2 {
+  font-size: 42px;
+  font-weight: 200;
+  /* Makes sure that the heading gets a proper line height */
+  line-height: 45px;
+}
+
+.horizontal-heading {
+  margin-bottom: 80px;
+}
+
+.horizontal-heading h5 {
+  font-size: 16px;
+  color: rgb(105, 196, 243);
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.horizontal-heading h2 {
+  margin: 0;
+}
+
+/* ==================================================
+                    About
+===================================================*/
+
+#about div.col-md-12 {
+  padding: 0;
+  margin: 0;
+}
+
+#about .container-fluid div.col-md-12 {
+  margin-bottom: -30px;
+}
+
+#about-header {
+  padding-top: 40px;
+  padding-bottom: 0;
+}
+
+#about-header h2 {
+  font-size: 45px;
+  line-height: 48px;
+}
+
+#about-header strong {
+  color: rgb(105, 196, 243);
+  font-weight: 400;
+}
+
+#about-info {
+  padding-left: 90px;
+}
+
+#about-info p {
+  font-size: 15px;
+}
+
+#about-p1 {
+  padding-top: -100px;
+  margin-top: 0;
+}
+
+#about-p2 {
+  padding-bottom: 45px;
+}
+
+#about-img {
+  padding: 0px;
+}
+
+#about .container-fluid {
+  background-color: #fff;
+}
+
+#about .content-box-lg {
+  padding: 0;
+  margin: 0;
+}
+
+#about-img {
+  margin: 0;
+  /* Keep the image to the right */
+  float: right;
+  padding-bottom: 50px;
+}
+
+/* ==================================================
+                    Team
+===================================================*/
+
+#team {
+  background-color: #f4f4f4;
+}
+
+#team-left h2 {
+  font-size: 45px;
+}
+
+#team-left h2 strong {
+  color: rgb(105, 196, 243);
+}
+
+#team-left .vertical-heading {
+  min-height: 160px;
+}
+
+.team-member {
+  margin: 8px;
+  /* Create 8px of space around each team member */
+  position: relative;
+}
+
+.team-member-overlay {
+  background-color: rgba(33, 34, 38, 0.9);
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Cover the whole member photo */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* In case there's anything overflowing */
+  opacity: 0;
+  /* All transitions should take 300ms in a linear motion */
+  -webkit-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+
+.team-member-info {
+  /* To cover the whole overlay div */
+  width: 100%;
+  height: 100%;
+  /* Will make the info be in the middle/center of the overlay div */
+  padding: 80px 0px;
+  /* Top and bottom, left and right */
+}
+
+.team-member-info h6 {
+  color: rgb(105, 196, 243);
+  font-size: 16px;
+  margin: 0;
+  /* Remove the default margins */
+}
+
+.team-member-info p {
+  color: #fff;
+}
+
+/* On hover of a team member, display the overlay */
+.team-member:hover .team-member-overlay {
+  /* To make the overlay visible again */
+  opacity: 1;
+}
+
+/* ==================================================
+                    Social Icons
+===================================================*/
+
+/* Target 'ul' element with its class name */
+ul.social-list {
+  /* Icons should have no padding */
+  padding: 0;
+  margin-top: 20px;
+}
+
+ul.social-list li {
+  /* Display as 'in-line' block */
+  display: inline-block;
+  padding: 0;
+}
+
+ul.social-list li a {
+  /* Have a white border around social media icons */
+  border: 1px solid #fff;
+  width: 35px;
+  height: 35px;
+  /* For icons to get a proper width and height */
+  display: inline-block;
+  line-height: 35px;
+  /* Will center icon. This value is the same value as the height */
+  color: #fff;
+  /* Rounds up the border; icons will have a circle border */
+  border-radius: 50%;
+  /* Will make the background change smoother, esp when hovering over social media icons */
+  -webkit-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+
+/* Target the first child of the list, which is the facebook icon */
+ul.social-list li:nth-child(1) a:hover {
+  /* Official facebook color */
+  background: #3b5998;
+  border-color: transparent;
+  /* Will not see the border when the mouse hovers */
+}
+
+ul.social-list li:nth-child(2) a:hover {
+  /* Official twitter color */
+  background: #00aced;
+  border-color: transparent;
+}
+
+ul.social-list li:nth-child(3) a:hover {
+  /* Official google plus color */
+  background: #dd4b39;
+  border-color: transparent;
+}
+
+/* Team Slider Button hover style */
+.owl-theme .owl-nav [class*="owl-"]:hover {
+  background: none;
+  color: #212226;
+}
+
+/* ==================================================
+                    Skills
+===================================================*/
+
+.skill {
+  margin-bottom: 20px;
+}
+
+.skill h4 {
+  line-height: 62px;
+  margin: 0;
+  font-weight: normal;
+}
+
+.progress {
+  height: 25px;
+  border-radius: 0;
+  background: #efefef;
+}
+
+.progress-bar {
+  background-color: rgb(105, 196, 243);
+  position: relative;
+}
+
+.progress-bar span {
+  font-size: 15px;
+  font-weight: 650;
+}
+
+/* ==================================================
+                    Statement
+===================================================*/
+#statement {
+  /* Background image for the statement section */
+  background-image: url("../img/ghibli/spirited-bg.jpg");
+  background-repeat: no-repeat;
+  /* Cover will scale the bg image to be as large as possible */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#statement #statement-bg-alpha {
+  width: 100%;
+  height: 100%;
+  /* Have an overlay on top of the bg image, making the text easier to read */
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#tech-statement h3 {
+  color: #f4f4f4;
+  font-size: 32px;
+  line-height: 45px;
+}
+
+#tech-statement p {
+  font-size: 24px;
+  color: #f4f4f4;
+  font-family: "Raleway", sans-serif;
+  margin-top: 8px;
+}
+
+/* ==================================================
+                    Services 1
+===================================================*/
+
+#services {
+  background-color: #f4f4f4;
+}
+
+#services-01 {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+#services-01 div.content-box-lg {
+  padding-top: 60px;
+}
+
+#services-01 div.horizontal-heading {
+  margin-bottom: 50px;
+}
+
+#services-01 div.horizontal-heading h5 {
+  font-size: 22px;
+}
+
+#services-01 img {
+  margin: 0;
+}
+
+.service {
+  margin: 0;
+}
+
+.service .icon {
+  font-size: 42px;
+  margin: 0;
+  /* For any movement, have a 300ms linear transition */
+  -webkit-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+
+/* On mouse hover of a service item, translate icon to the left */
+.service:hover .icon {
+  color: rgb(105, 196, 243);
+  /* Change position, -20px on the X axis */
+  -webkit-transform: translateX(-20px);
+  transform: translateX(-20px);
+}
+
+.service h5 {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: rgb(105, 196, 243);
+  margin: 0 0 6px 0;
+}
+
+.service:hover h5 {
+  color: #212226;
+}
+
+.service h4 {
+  font-size: 24px;
+  margin: 0 0 8px 0;
+}
+
+.service p {
+  line-height: normal;
+}
+
+/* ==================================================
+                Services 2 (Responsive Tabs)
+===================================================*/
+
+#services-02 {
+  background: #f4f4f4;
+}
+
+#services-tabs ul {
+  margin-bottom: 40px;
+}
+
+#services-tabs ul li {
+  padding: 5px 30px;
+}
+
+#services-tabs ul li a {
+  font-family: "Raleway", sans-serif;
+  font-size: 13px;
+  color: #212226;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: 0;
+  /* Remove underline from tab names */
+  text-decoration: none;
+}
+
+/* Tab active state */
+/* only target the active tab */
+#services-tabs ul li.r-tabs-state-active a {
+  color: rgb(105, 196, 243);
+  font-weight: 600;
+  /* Create an underline */
+  border-bottom: 2px solid rgb(105, 196, 243);
+  /* Create space from the underline */
+  padding: 4px;
+}
+
+/* Will remove the gap between the image and the right side with text */
+.service-tab .col-md-6 {
+  padding: 0;
+}
+
+.service-tab img {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.service-tab .tab-bg {
+  background: #fff;
+  /* Create inner space */
+  padding: 60px 30px;
+  min-height: 470px;
+}
+
+.service-tab h2 {
+  font-size: 48px;
+  color: #bbb;
+  /* Create bottom space */
+  margin-bottom: 20px;
+  font-weight: 100;
+}
+
+.service-tab h3 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.service-tab p {
+  line-height: 24px;
+  margin-bottom: 30px;
+}
+
+/* ==================================================
+                    Portfolio
+===================================================*/
+
+#portfolio {
+  padding-bottom: 160px;
+}
+
+#portfolio div.content-box-md {
+  padding-top: 45px;
+}
+
+#portfolio .vertical-heading h5 {
+  font-size: 27px;
+  font-weight: 400;
+  margin: -8px;
+}
+
+#portfolio .vertical-heading {
+  margin-bottom: 50px;
+}
+
+/* First selector selects the BS row */
+/* ".no-gaps" -- to create and attach a custom CSS class to this row */
+/* Select all the elements "that have a class with a value containing "col-" " */
+.row.no-gaps [class*="col-"] {
+  padding: 0;
+}
+
+.portfolio-item {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Filters CSS */
+#isotope-filters {
+  margin-bottom: 10px;
+  padding: 20px 25px 20px 0px;
+}
+
+#isotope-filters button {
+  font-family: "Raleway", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding-right: 35px;
+  outline: 0;
+}
+
+#isotope-filters button span {
+  display: block;
+  padding-bottom: 5px;
+}
+
+/* Apply CSS to the text of the active button */
+#isotope-filters button.active span {
+  color: rgb(105, 196, 243);
+  border-bottom: 3px solid rgb(105, 196, 243);
+}
+
+/* Zoom Effect */
+.portfolio-item img {
+  width: 100%;
+  height: auto;
+  /* change property values smoothly from one value to another over a given duration */
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+
+/* On hover of portfolio item, zoom out the picture, without changing its content box size */
+.portfolio-item:hover img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/* Overlay Effect */
+.portfolio-item-overlay {
+  position: absolute;
+  /* For the text/title to cover its entire parent element and for centering */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(14, 14, 17, 0.85);
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+  opacity: 0;
+  /* ease - slow start and end, fast middle */
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+/* Item Details Effect */
+.portfolio-item-details {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  /* Will center the text in front of each image */
+  /* The technique is to set top: 50%, and also copy the line below */
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.portfolio-item-details h3 {
+  color: rgb(105, 196, 243);
+  text-transform: uppercase;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  -webkit-transform: translateY(-20%);
+  transform: translateY(-20%);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.portfolio-item-details span {
+  display: inline-block;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  height: 6px;
+  width: 30px;
+  margin: 11px auto 5px auto;
+}
+
+.portfolio-item-details p {
+  font-size: 17px;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  -webkit-transform: translateY(20%);
+  transform: translateY(20%);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+/* Show overlay on mouseover */
+.portfolio-item:hover .portfolio-item-details h3 {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.portfolio-item:hover .portfolio-item-details p {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.portfolio-item:hover .portfolio-item-overlay {
+  /* On mouse hover, opacity will turn to 0.9 like it was before */
+  opacity: 1;
+}
+
+/* ==================================================
+                    Pricing
+===================================================*/
+
+/* Create a shadow/border for each pricing table */
+.pricing-table {
+  -webkit-box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 32px 21px;
+  -webkit-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+
+.pricing-table:hover {
+  background: rgb(105, 196, 243);
+}
+
+.pricing-table .type h4 {
+  color: rgb(105, 196, 243);
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.pricing-table .price {
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 24px 0px;
+}
+
+.pricing-table .price h2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 42px;
+  font-weight: 100;
+  margin: 0 0 0 24px;
+  position: relative;
+}
+
+.pricing-table .price h2 span {
+  font-family: "Raleway", sans-serif;
+}
+
+.pricing-table .price h2 span.month {
+  font-size: 11px;
+  font-weight: 400;
+  position: absolute;
+  left: 5px;
+  bottom: -12px;
+}
+
+.pricing-table .price p {
+  line-height: normal;
+  font-weight: 200;
+  margin: 0;
+  padding: 0;
+}
+
+/* Within each element with class "pricing-table", there's an ul element with class "package" */
+.pricing-table ul.package {
+  list-style: none;
+  padding: 20px 0;
+}
+
+.pricing-table ul.package li {
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 35px;
+}
+
+/* Target the "check" icons */
+.pricing-table ul.package li i {
+  /* Create some space to its right */
+  width: 24px;
+}
+
+.pricing-table .btn-yellow,
+.pricing-table.black .btn-white {
+  width: 96%;
+}
+
+/* On hover of a pricing-table element, do X to its child h4, h2, p, and ul.package elements */
+.pricing-table:hover h4,
+.pricing-table:hover h2,
+.pricing-table:hover p,
+.pricing-table:hover ul.package {
+  /* Will make all these elements white */
+  color: #fff;
+}
+
+/* Change color of the button when user hovers over a .pricing-table element */
+.pricing-table:hover .btn-yellow {
+  background: #fff;
+  color: #212226;
+  border: 1px solid #fff;
+}
+
+/* Change color of the button when user hover over it */
+.pricing-table .btn-yellow:hover {
+  background: #212226;
+  color: #fff;
+  border: 1px solid #212226;
+}
+
+/* Black pricing table */
+.pricing-table.black {
+  background: #212226;
+  color: #fff;
+}
+
+.pricing-table.black .type h4 {
+  color: #fff;
+}
+
+.pricing-table.black:hover {
+  background: rgb(105, 196, 243);
+}
+
+/* ==================================================
+                    Footer
+===================================================*/
+
+footer {
+  background: #212226;
+  padding: 30px;
+}
+
+footer p {
+  color: #fff;
+  line-height: 20px;
+}
+
+footer p span {
+  color: rgb(105, 196, 243);
+}
+
+/* ==================================================
+                    Navigation Bar
+===================================================*/
+
+header {
+  background: rgba(25, 25, 25, 0.75);
+}
+
+header::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#header-logo-img {
+  height: 38px;
+}
+
+.logo {
+  float: left;
+}
+
+nav {
+  float: right;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  font-size: 13px;
+  font-weight: 350;
+  display: inline-block;
+  padding-left: 12px;
+  padding-right: 15px;
+  padding-top: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* Will remove the underline when hovering over a title */
+nav ul li a:hover {
+  text-decoration: none;
+}
+
+/* ==================================================
+                    Log In Section
+===================================================*/
+
+#login div.col-md-12 {
+  padding: 0;
+  margin: 0;
+}
+
+#login .container-fluid div.col-md-12 {
+  margin-bottom: 0px;
+}
+
+#login-entry {
+  padding-top: 50px;
+  padding-bottom: 220px;
+}
+
+#login-entry h2 {
+  font-size: 45px;
+  line-height: 48px;
+}
+
+#login-entry strong {
+  color: rgb(105, 196, 243);
+  font-weight: 100;
+}
+
+#login .container-fluid {
+  background-color: #fff;
+}
+
+#login .content-box-lg {
+  padding: 0;
+  margin: 0;
+}
+
+/* ==================================================
+                    Sign Up Section
+===================================================*/
+
+#signup div.col-md-12 {
+  padding: 0;
+  margin: 0;
+}
+
+#signup .container-fluid div.col-md-12 {
+  margin-bottom: 0px;
+}
+
+#signup-entry {
+  padding-top: 50px;
+  padding-bottom: 220px;
+}
+
+#signup-entry h2 {
+  font-size: 45px;
+  line-height: 48px;
+}
+
+#signup-entry strong {
+  color: rgb(105, 196, 243);
+  font-weight: 100;
+}
+
+#signup .container-fluid {
+  background-color: #fff;
+}
+
+#signup .content-box-lg {
+  padding: 0;
+  margin: 0;
+}
+
+/* ==================================================
+                    Buy Section
+===================================================== */
+
+#main-content {
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+#db-movies-btn p {
+  font-size: 8px;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#db-movies {
+  margin-top: 40px;
+}
+
+/* Totoro Image */
+#totoro-img {
+  margin: 0;
+  /* Keep the image to the right */
+  float: right;
+}
+
+#buy-content-box {
+  padding-bottom: 0px;
+}

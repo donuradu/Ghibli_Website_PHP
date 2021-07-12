@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.idea",
+    "\\public_html",
+    "\\public_html\\css",
+    "\\resources",
+    "\\resources\\templates",
+    "\\resources\\templates\\front"
+  ],
+  "SelectedNode": "\\resources\\templates\\front\\footer_html.php",
+  "PreviewInSolutionExplorer": false
+}
